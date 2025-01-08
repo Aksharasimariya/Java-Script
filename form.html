@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="script.js"> -->
+</head>
+<body>
+    <div class="container">
+        <h2>Responsive Registration </h2>
+        <h3>Form</h3>
+        
+        <div class="form-container">
+            <form action="" onsubmit=" return validateForm()">
+                            
+                <div class="input-name">
+                    <i class="fa-sharp fa-solid fa-envelope lock"></i>
+                    <input type="email" placeholder="E-mail" class="text-name" id="email">
+                    <p id="emailError" class="error"></p>
+                </div>
+
+                <div class="input-name">
+                    <i class="fa-solid fa-lock lock"></i>
+                    <input type="password" placeholder="Password" class="text-name" id="password" autocomplete="off">
+                    <p id="passError" class="error"></p>
+                </div>
+
+                <div class="input-name">
+                    <i class="fa-solid fa-lock lock"></i>
+                    <input type="password" placeholder="Re-type Password" class="text-name" id="conpassword">
+                    <p id="conpassError" class="error"></p>
+                </div>
+                
+                <div class="username">
+                <div class="input-name">
+                    <i class="fa-solid fa-user lock" ></i>
+                    <input type="text" placeholder="First Name" class="name" id="fn">
+                    <p id="userfError" class="error"></p>
+                </div>
+                <div class="input-name">
+                        <i class="fa-solid fa-user lock"></i>
+                        <input type="text" placeholder="Last Name" class="name" id="ln">
+                        <p id="userlError" class="error"></p>
+                </div>
+            </div>
+
+                <div class="input-name">
+                    <input type="radio" class="radio-button" name="gender" value="male">
+                    <label style="margin-right:30px;" for="">Male</label>
+
+                    <input type="radio" class="radio-button" name="gender" value="Female" >
+                    <label for="">Female</label>
+                    <p id="genError" class="error"></p>
+                </div>
+
+                <div class="input-name">
+                    <select class="country" id="country">
+                        <option value="" >Select a country</option>
+                        <option value="India">India</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="Bhutan">Bhutan</option>
+                        <option value="Japan">Japan</option>
+                    </select>
+                    <p class="error" id="conError"></p>
+                    <div class="arrow"></div>
+                </div>
+
+                <div class="input-name">
+                        <input type="checkbox" id="cb" class="check-button">
+                        <label for="cb" class="check">I accept the terms and conditions</label>
+                </div>
+
+                <div class="input-name">
+                    <input type="submit" class="button" value="Register" id="submit">
+            </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- <scrip src="script.js"> -->
+
+
+    <script>
+    function validateForm(){    
+        var userfname=document.getElementById("fn");
+        var userlname=document.getElementById("ln");
+        var password=document.getElementById("password");
+        var confirmPassword=document.getElementById("conpassword");
+        var email=document.getElementById("email");
+        var gender=document.getElementsByName("gender");
+        var country=document.getElementById("country");
+
+            
+        if (userfname.value=="" || userlname.value=="" ||password.value=="" ||confirmPassword.value==""||email.value==""){
+         alert("All Fields are mendatory");
+        }
+
+    if(userfname.value == ""){
+        document.getElementById("userfError").innerHTML="User Name is empty";
+    }else if(userfname.value.length < 3){
+        document.getElementById("userfError").innerHTML="User Name require min 3 characters.";
+    }else{
+        document.getElementById("userfError").innerHTML= "";
+    }
+
+    
+    
+    if(userlname.value == ""){
+        document.getElementById("userlError").innerHTML="User Name is empty";
+    }else if(userlname.value.length < 3){
+        document.getElementById("userlError").innerHTML="User Name require min 3 characters.";
+    }else{
+        document.getElementById("userlError").innerHTML= "";
+    }
+
+    // const allowSpecialCharacters='!@#$%^&*()_+{}:";./';
+
+    // let Empty=val.length !=0 ? false:true;
+    // let grater=val.length >=6 ? true:false;
+    // let smaller = val.length <= 20 ? true : false;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if(password.value ==""){
+        document.getElementById("passError").innerHTML="Please Enter Password.";
+    }else if(!(passwordRegex.test(password.value))){
+        document.getElementById("passError").innerHTML= "please ensure that in your password at lest one [a-z],[A-Z],one digit,one special character, and password is at least 8 character long.";
+    }else{}
+    
+
+
+    
+    if(confirmPassword.value==""){
+        document.getElementById("conpassError").innerHTML="Please Enter Password.";
+    }else if(confirmPassword.value != password.value){
+        document.getElementById("conpassError").innerHTML="Enter Same Password.";
+    }else{
+        document.getElementById("conpassError").innerHTML="";
+    }
+
+    const emailRegex= /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if(email.value ==""){
+        document.getElementById("emailError").innerHTML="Please Enter Email.";
+    }else if(!(emailRegex.test(email.value))){
+        document.getElementById("emailError").innerHTML="your email must be like this 'user@domain.com' or 'user.name@domain.com'";
+    }
+    else{}
+
+    // const gender=document.getElementsByName("gender");
+    // let isChecked=false;
+
+    // for (let i = 0; i < gender.length; i++) {
+    //             if (gender[i].checked) {
+    //                 isChecked = true;
+    //                 break;
+    //             }
+    //         }if (!isChecked) {
+    //             document.getElementById("genError").innerText = "Please select an option."; 
+    //         }else{
+    //         document.getElementById("GenError").innerText = "";
+    //         }
+    //         return false;
+    //     }
+
+    if(!(gender[0].checked||gender[1].checked)){
+                document.getElementById("genError").innerHTML="please select your Gender.";
+            }else{
+                document.getElementById("genError").innerHTML="";
+            }
+            
+
+       console.log(country.value );
+            if((country.value.length==0)){
+            document.getElementById("conError").innerHTML="Please select country";
+        }else{
+            document.getElementById("conError").innerHTML="";
+        } 
+        
+        
+        return false; 
+
+}
+        
+
+
+
+    
+
+    
+
+
+    </script>
+</body>
+</html>
