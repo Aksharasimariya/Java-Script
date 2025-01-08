@@ -6,17 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 <body>
     <div class="container">
         <h2>Responsive Registration </h2>
         <h3>Form</h3>
-        
         <div class="form-container">
             <form action="" onsubmit=" return validateForm()">
-                            
-                <div class="input-name">
+                    <div class="input-name">
                     <i class="fa-sharp fa-solid fa-envelope lock"></i>
                     <input type="email" placeholder="E-mail" class="text-name" id="email">
                     <p id="emailError" class="error"></p>
@@ -82,8 +79,6 @@
         </div>
     </div>
 
-
-
     <script>
     function validateForm(){    
         var userfname=document.getElementById("fn");
@@ -126,9 +121,6 @@
         document.getElementById("passError").innerHTML= "please ensure that in your password at lest one [a-z],[A-Z],one digit,one special character, and password is at least 8 character long.";
     }else{}
     
-
-
-    
     if(confirmPassword.value==""){
         document.getElementById("conpassError").innerHTML="Please Enter Password.";
     }else if(confirmPassword.value != password.value){
@@ -146,10 +138,6 @@
     }
     else{}
 
-    
-
-    
-
     if(!(gender[0].checked||gender[1].checked)){
                 document.getElementById("genError").innerHTML="please select your Gender.";
             }else{
@@ -163,10 +151,7 @@
         }else{
             document.getElementById("conError").innerHTML="";
         } 
-        
-        
-        return false; 
-
+    return false; 
 }
         
 
