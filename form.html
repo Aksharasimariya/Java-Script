@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- <link rel="stylesheet" href="script.js"> -->
+
 </head>
 <body>
     <div class="container">
@@ -82,7 +82,6 @@
         </div>
     </div>
 
-    <!-- <scrip src="script.js"> -->
 
 
     <script>
@@ -118,11 +117,7 @@
         document.getElementById("userlError").innerHTML= "";
     }
 
-    // const allowSpecialCharacters='!@#$%^&*()_+{}:";./';
-
-    // let Empty=val.length !=0 ? false:true;
-    // let grater=val.length >=6 ? true:false;
-    // let smaller = val.length <= 20 ? true : false;
+    
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
     if(password.value ==""){
@@ -151,21 +146,9 @@
     }
     else{}
 
-    // const gender=document.getElementsByName("gender");
-    // let isChecked=false;
+    
 
-    // for (let i = 0; i < gender.length; i++) {
-    //             if (gender[i].checked) {
-    //                 isChecked = true;
-    //                 break;
-    //             }
-    //         }if (!isChecked) {
-    //             document.getElementById("genError").innerText = "Please select an option."; 
-    //         }else{
-    //         document.getElementById("GenError").innerText = "";
-    //         }
-    //         return false;
-    //     }
+    
 
     if(!(gender[0].checked||gender[1].checked)){
                 document.getElementById("genError").innerHTML="please select your Gender.";
